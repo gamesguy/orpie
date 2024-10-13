@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
 // Configure PostgreSQL connection
 const pool = new Pool({
-  connectionString: 'postgresql://postgres:JNLGuyDpwCfLSumQhrltRWTHMNcEVLfV@autorack.proxy.rlwy.net:37089/railway'
+  connectionString: 'postgresql://postgres:hoHArIERWQOKgHAgRMbhznMiyhNeUTxH@junction.proxy.rlwy.net:43313/railway'
 });
 
 pool.connect()
