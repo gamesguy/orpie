@@ -1,6 +1,7 @@
-const express = require('express');
+
 const bodyParser = require('body-parser');
 const { Pool } = require('pg');
+require('dotenv').config();const express = require('express');
 const cors = require('cors'); // Import CORS
 
 const app = express();
