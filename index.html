@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orpah's Story</title>
+
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f8;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #34495e;
+      color: #fff;
+      padding: 30px 0;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5em;
+      animation: fadeIn 2s ease-in-out;
+    }
+    header p {
+      margin: 10px 0;
+      font-size: 1.2em;
+      animation: fadeIn 3s ease-in-out;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    .content {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .chapter-link {
+      display: inline-block;
+      margin: 15px;
+      padding: 15px 25px;
+      font-size: 1.2em;
+      color: #fff;
+      background-color: #3498db;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .chapter-link:hover {
+      background-color: #1abc9c;
+      transform: scale(1.05);
+    }
+    .chapter-preview {
+      margin-top: 20px;
+      color: #2c3e50;
+      background-color: #ecf0f1;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    footer {
+      background-color: #34495e;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Orpah's Story</h1>
+    <p>Journey with Orpah through love, faith, and self-discovery.</p>
+  </header>
+  
+  <div class="content">
+    <h2>Select a Chapter</h2>
+    <!-- List of Chapter Links with data-preview attribute for dynamic preview -->
+    <a href="prologue.html" class="chapter-link" data-preview="Orpah begins her journey...">Prologue</a>
+    <a href="chapter1.html" class="chapter-link" data-preview="Orpah meets Ruth and Chilion...">Chapter 1</a>
+    <a href="chapter2.html" class="chapter-link" data-preview="Orpah and Mahlon prepare...">Chapter 2</a>
+    <a href="chapter3.html" class="chapter-link" data-preview="Orpah enters her new family...">Chapter 3</a>
+    
+    <div class="chapter-preview">
+      <h3>Latest Chapter</h3>
+      <p id="preview-text">Loading latest chapter...</p>
+      <a href="#" id="latest-chapter-link" class="chapter-link">Read Latest Chapter</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Orpah's Story. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // JavaScript to dynamically update the "Latest Chapter" preview
+    document.addEventListener("DOMContentLoaded", () => {
+      const chapterLinks = document.querySelectorAll('.chapter-link');
+      const latestChapter = chapterLinks[chapterLinks.length - 2]; // Adjust index if needed
+      const previewText = document.getElementById('preview-text');
+      const latestChapterLink = document.getElementById('latest-chapter-link');
+
+      // Check if latest chapter is found and set the preview text and link
+      if (latestChapter) {
+        previewText.innerText = latestChapter.getAttribute('data-preview');
+        latestChapterLink.href = latestChapter.href;
+      }
+    });
+  </script>
+</body>
+</html>

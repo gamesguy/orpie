@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 3 - Orpah's Story</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fbfbfb;
+      margin: 0;
+      padding: 0;
+    }
+    .content {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      border-left: 5px solid #e74c3c;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    h1 {
+      text-align: center;
+      color: #e74c3c;
+    }
+    p {
+      line-height: 1.6;
+      font-size: 1.1em;
+      color: #333;
+    }
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.2em;
+      text-decoration: none;
+      color: #3498db;
+    }
+    .back-link:hover {
+      color: #1abc9c;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Chapter 3</h1>
+   <p> “Mahlon, you’ve chosen a beautiful, fine young woman. I’m proud of you,” Mahlon’s father, Elimelech, said, his voice full of warmth and approval.
+</p>
+   <p> Mahlon beamed with pride as he responded, “Thank you, Father. I’m honored to have Orpah by my side.”</p>
+    
+   <p> Elimelech’s wife, Naomi, smiled warmly at me. “Orpah, you look radiant. We’re so happy to welcome you into our family.”
+</p>
+   <p> “Thank you, Chamot,” I replied, my cheeks flushing with gratitude. “I’m honored to be part of your family.”</p>
+    
+<p>    Naomi nodded, her eyes reflecting a mix of approval and emotion. “Call me Naomi. I don’t mind.”
+</p>
+    <p>“Thank you Cha… I mean, thank you Naomi. I’m really grateful,” I said, full of smiles and internally grateful for the type of mother-in-law I have.</p>
+    
+   <p> Ruth, standing nearby with Chilion by her side, grinned and joined the conversation. “Orpah, you look absolutely stunning.”
+</p>
+<p>    “Oh, Ruth,” I said, laughing lightly, “you made the dress.”
+    
+    “I Know” She said smiling cheekily and everyone laughed.
+    </p>
+  <p>  Suddenly, the Levite in charge stepped forward. “Sorry to interrupt, but it’s time for the signing of the Ketubah.”</p>
+    
+<p>    The announcement brought a flurry of activity as everyone began to prepare for the next part of the ceremony, I felt a pang of sadness. My parents were supposed to be here to collect the cloth of virginity after we entered the tent, but they didn’t want to have anything to do with me.
+</p>
+   <p> “Orpie, come back from your world,” Mahlon called me gently.
+    
+    I turned to him, feeling a mix of emotions. “You get distracted a lot. What are you thinking about? Another man, I hope not,” Mahlon joked, trying to lighten the mood.
+    </p>
+  <p>  I couldn’t help but smile, though my heart ached. “Just that my parents are not here, and it kinda hurts.”
+    
+    Mahlon took my hand, his expression softening. “Don’t worry, I’ll be better to you than your parents ever were.”
+    </p>
+   <p> “I know,” I replied, and I meant it. I really did.</p>
+    
+   <p> From the corner of my eye, I saw Ruth smiling at me as she and her husband also signed the Ketubah. I felt grateful to be able to see that person everyday of my life, apart from My husband, Ruth was my next favourite person.
+</p>
+   <p> “Now that the Ketubah has been signed, it is now time for both the couples to enter the tent and perform their conjugal duties” the priest said from the top of the elevated platform that he was standing on.
+</p>
+  <p>  “Come my ishah, let’s make it formal” Mahlon said as he accompanied me in to the tent.</p>
+    <a href="index.html" class="back-link">Back to Chapters</a>
+  </div>
+  <h1>Leave a Comment</h1>
+  <form id="commentForm">
+      <input type="text" id="name" placeholder="Name" required />
+      <textarea id="content" placeholder="Write your comment here..." required></textarea>
+      <button type="submit">Submit</button>
+  </form>
+  
+  <h2>Comments</h2>
+  <div id="comments"></div>
+  
+  
+    </div>
+    <script>
+        const chapter = 'chapter3'; // Change this to the chapter identifier for each page
+        
+      // Fetch existing comments for the specific chapter
+async function fetchComments() {
+    const res = await fetch(`/comments/${chapter}`);
+    const comments = await res.json();
+    const commentsDiv = document.getElementById('comments');
+    commentsDiv.innerHTML = comments.map(c => `<p><strong>${c.name}:</strong> ${c.content}</p>`).join('');
+}
+
+document.getElementById('commentForm').onsubmit = async (e) => {
+    e.preventDefault();
+
+    // Get the name from an input field instead of prompting
+    const name = document.getElementById('name').value; // Assume there's an input field for name
+    const content = document.getElementById('content').value;
+
+    if (name && content) { // Check both name and content are provided
+        await fetch(`/comments/${chapter}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, content })
+        });
+
+        document.getElementById('commentForm').reset();
+        fetchComments(); // Refresh comments after submission
+    }
+};
+
+// Fetch comments when the page loads
+fetchComments();
+        </script>
+        
+  <style>form {
+      margin: 20px 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  input[type="text"],
+  textarea {
+      width: calc(100% - 22px);
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+  }
+  
+  button {
+      background-color: #3498db;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+  
+  button:hover {
+      background-color: #1abc9c;
+  }
+  
+  h2 {
+      margin-top: 30px;
+  }
+  </style>
+</body>
+</html>
